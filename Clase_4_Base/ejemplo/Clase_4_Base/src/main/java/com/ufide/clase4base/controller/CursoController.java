@@ -103,13 +103,13 @@ public class CursoController {
 
         // PASO A.1 - descomentar para mostrar el formulario vacio de nuevo curso.
         // El template templates/cursos/form.html lo creas en el paso A.2.
-        /*
+        
         @GetMapping("/nuevo")
         public String mostrarFormNuevo(Model modelo) {
                 modelo.addAttribute("curso", new Curso());
                 return "cursos/form";
         }
-        */
+        
 
         // PASO A.3 - descomentar para recibir el POST del formulario y guardar.
         // En PARTE A se usa sin @Valid; en PARTE A.4 reemplazas la firma por la version validada (abajo).

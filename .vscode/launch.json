@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Clase4baseApplication",
+            "request": "launch",
+            "mainClass": "com.ufide.clase4base.Clase4baseApplication",
+            "projectName": "clase4base"
+        },
+        {
+            "type": "java",
+            "name": "Clase4baseApplication(1)",
+            "request": "launch",
+            "mainClass": "com.ufide.clase4base.Clase4baseApplication",
+            "projectName": "com.ufide-clase4base"
+        },
+        {
+            "type": "java",
+            "name": "PrimerproyectoApplication",
+            "request": "launch",
+            "mainClass": "com.ufide.primerproyecto.PrimerproyectoApplication",
+            "projectName": "com.ufide-primerproyecto"
+        },
+        {
+            "type": "java",
+            "name": "TiendaappApplication",
+            "request": "launch",
+            "mainClass": "com.ufide.tiendaapp.TiendaappApplication",
+            "projectName": "com.ufide-tiendaapp"
+        }
+    ]
+}
