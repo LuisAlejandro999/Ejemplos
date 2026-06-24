@@ -8,10 +8,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 // CLASE 6 - PARTE A.4: descomentar cuando agreguemos las validaciones
-// import jakarta.validation.constraints.Max;
-// import jakarta.validation.constraints.Min;
-// import jakarta.validation.constraints.NotBlank;
-// import jakarta.validation.constraints.Size;
+ import jakarta.validation.constraints.Max;
+ import jakarta.validation.constraints.Min;
+ import jakarta.validation.constraints.NotBlank;
+ import jakarta.validation.constraints.Size;
 
 /**
  * Modelo de datos del Curso.
@@ -35,18 +35,18 @@ public class Curso {
     private Long id;
 
     // CLASE 6 - PARTE A.4: descomentar @NotBlank y @Size
-    // @NotBlank(message = "El nombre es obligatorio")
-    // @Size(max = 100, message = "El nombre no puede tener mas de 100 caracteres")
+    @NotBlank(message = "El nombre es obligatorio")
+    @Size(max = 100, message = "El nombre no puede tener mas de 100 caracteres")
     @Column(nullable = false)
     private String nombre;
 
     // CLASE 6 - PARTE A.4: descomentar @Size
-    // @Size(max = 500, message = "La descripcion no puede tener mas de 500 caracteres")
+    @Size(max = 500, message = "La descripcion no puede tener mas de 500 caracteres")
     private String descripcion;
 
     // CLASE 6 - PARTE A.4: descomentar @Min y @Max
-    // @Min(value = 1, message = "Los creditos deben ser al menos 1")
-    // @Max(value = 8, message = "Los creditos no pueden superar los 8")
+     @Min(value = 1, message = "Los creditos deben ser al menos 1")
+     @Max(value = 8, message = "Los creditos no pueden superar los 8")
     private int creditos;
 
     // CLASE 6 - PARTE A.4: descomentar @NotBlank y @Size
