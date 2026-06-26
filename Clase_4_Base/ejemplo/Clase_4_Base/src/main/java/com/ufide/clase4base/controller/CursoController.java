@@ -19,7 +19,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 // CLASE 6 - PARTE A.4 (validaciones): descomentar al agregar @Valid
 import jakarta.validation.Valid;
 
-
 // CLASE 6 - PARTE E (bonus Firebase): descomentar al integrar upload
 // import org.springframework.web.bind.annotation.RequestParam;
 // import org.springframework.web.multipart.MultipartFile;
@@ -132,51 +131,47 @@ public class CursoController {
         // BORRA el guardar() de arriba y descomenta este:
 
         @PostMapping
-          public String guardar(@Valid @ModelAttribute("curso") Curso curso,
-          BindingResult result,
-          RedirectAttributes ra) {
-          if (result.hasErrors()) {
-          return "cursos/form";
-          }
-          cursoService.guardar(curso);
-          ra.addFlashAttribute("ok", "Curso guardado correctamente");
-          return "redirect:/cursos";
-          }
+        public String guardar(@Valid @ModelAttribute("curso") Curso curso,
+                        BindingResult result,
+                        RedirectAttributes ra) {
+                if (result.hasErrors()) {
+                        return "cursos/form";
+                }
+                cursoService.guardar(curso);
+                ra.addFlashAttribute("ok", "Curso guardado correctamente");
+                return "redirect:/cursos";
+        }
 
-         // =====================================================================
-         // CLASE 6 - PARTE B: UPDATE (formulario editar + POST actualizar)
-         // =====================================================================
-         // PASO B.1 - descomentar para mostrar el formulario precargado con el curso
-         // editar.
+        // =====================================================================
+        // CLASE 6 - PARTE B: UPDATE (formulario editar + POST actualizar)
+        // =====================================================================
+        // PASO B.1 - descomentar para mostrar el formulario precargado con el curso
+        // editar.
         // Reutiliza el mismo template cursos/form.html que el CREATE.
-         /*
-           * 
-           * @GetMapping("/{id}/editar")
-           * public String mostrarFormEditar(@PathVariable Long id, Model modelo) {
-           * Curso curso = cursoService.buscarPorId(id).orElseThrow();
-           * modelo.addAttribute("curso", curso);
-           * return "cursos/form";
-           * }
-           */
+
+        @GetMapping("/{id}/editar")
+        public String mostrarFormEditar(@PathVariable Long id, Model modelo) {
+                Curso curso = cursoService.buscarPorId(id).orElseThrow();
+                modelo.addAttribute("curso", curso);
+                return "cursos/form";
+        }
 
         // PASO B.2 - descomentar para recibir el POST del editar y actualizar.
         // Truco: save() de JPA distingue INSERT vs UPDATE por el ID.
-        /*
-         * @PostMapping("/{id}")
-         * public String actualizar(@PathVariable Long id,
-         * 
-         * @Valid @ModelAttribute("curso") Curso curso,
-         * BindingResult result,
-         * RedirectAttributes ra) {
-         * if (result.hasErrors()) {
-         * return "cursos/form";
-         * }
-         * curso.setId(id);
-         * cursoService.guardar(curso);
-         * ra.addFlashAttribute("ok", "Curso actualizado correctamente");
-         * return "redirect:/cursos";
-         * }
-         */
+
+        @PostMapping("/{id}")
+        public String actualizar(@PathVariable Long id,
+                        @Valid @ModelAttribute("curso") Curso curso,
+                        BindingResult result,
+                        RedirectAttributes ra) {
+                if (result.hasErrors()) {
+                        return "cursos/form";
+                }
+                curso.setId(id);
+                cursoService.guardar(curso);
+                ra.addFlashAttribute("ok", "Curso actualizado correctamente");
+                return "redirect:/cursos";
+        }
 
         // =====================================================================
         // CLASE 6 - PARTE C: DELETE con modal de confirmacion
@@ -184,14 +179,14 @@ public class CursoController {
 
         // PASO C.1 - descomentar para procesar el borrado.
         // El boton + modal en la vista los agregas en los pasos C.2 y C.3.
-        /*
-         * @PostMapping("/{id}/eliminar")
-         * public String eliminar(@PathVariable Long id, RedirectAttributes ra) {
-         * cursoService.eliminar(id);
-         * ra.addFlashAttribute("ok", "Curso eliminado correctamente");
-         * return "redirect:/cursos";
-         * }
-         */
+        
+          @PostMapping("/{id}/eliminar")
+          public String eliminar(@PathVariable Long id, RedirectAttributes ra) {
+          cursoService.eliminar(id);
+          ra.addFlashAttribute("ok", "Curso eliminado correctamente");
+          return "redirect:/cursos";
+          }
+         
 
         // =====================================================================
         // CLASE 6 - PARTE E (BONUS): subir imagen del curso a Firebase Storage
