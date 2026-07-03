@@ -24,5 +24,4 @@ out/
 Thumbs.db
 
 # Secrets - NUNCA subir
-application-local.properties
-*.env
+

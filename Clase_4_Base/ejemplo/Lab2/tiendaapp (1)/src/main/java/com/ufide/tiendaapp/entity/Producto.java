@@ -27,7 +27,7 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Validación para que el formulario no acepte nombres vacíos ni espacios en blanco
+    
     @NotBlank(message = "El nombre del producto es obligatorio.")
     @Column(nullable = false, length = 100)
     private String nombre;
@@ -44,7 +44,7 @@ public class Producto {
     @Column(length = 50)
     private String categoria;
 
-    /** Constructor vacio - obligatorio para JPA. */
+    
     public Producto() {}
 
     public Producto(String nombre, String descripcion, double precio, int stock, String categoria) {
