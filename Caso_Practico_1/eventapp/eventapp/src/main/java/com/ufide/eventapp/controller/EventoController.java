@@ -116,8 +116,8 @@ public class EventoController {
     }
 
     @GetMapping("/buscar")
-    public String buscarPorNombre(@RequestParam("nombre") String nombre, Model model) {
-        model.addAttribute("eventos", service.buscarPorNombre(nombre));
+    public String buscarPorNombre(@RequestParam("q") String q, Model model) {
+        model.addAttribute("eventos", service.buscarPorNombre(q));
         return "eventos";
         }
 }
